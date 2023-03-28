@@ -1,0 +1,120 @@
+<ng-template #uploadcontent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Punktwolke hochladen</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+
+        <!-- file -->
+        <div class="mb-3">
+          <label for="accuracy">Datei</label>
+          <div id="accuracy" class="input-group">
+            <input type="file"
+                   id="file"
+                   (change)="handleFileInput($event)">
+          </div>
+        </div>
+
+        <!-- accuracy -->
+        <div class="mb-3">
+          <label for="accuracy">Genauigkeit [cm]</label>
+          <div id="accuracy" class="input-group">
+
+            <div class="settings">
+
+            <label class="fw-light">Lage</label>
+            <input id="acc-position-input" type="text" class="form-control form-accuracy-pos" placeholder="Lage" value="5"/>
+
+            <label class="fw-light">Höhe</label>
+            <input id="acc-height-input" type="text" class="form-control form-accuracy-height" placeholder="Höhe" value="10"/>
+          </div>
+        </div>
+
+      </div>
+
+        <!-- expression-->
+        <div class="mb-3">
+          <label for="expression">Ausdruck</label>
+          <div id="expression" class="input-group">
+            <app-expression></app-expression>
+          </div>
+        </div>
+
+        <!-- measureMethod-->
+        <div class="mb-3">
+          <label for="measureMethod">Messmethode</label>
+          <div id="measureMethod" class="input-group">
+            <app-measure-method></app-measure-method>
+          </div>
+        </div>
+
+        <!-- Measure Date -->
+        <div class="mb-3">
+          <label for="measureDate">Messzeitraum</label>
+        <div id="measureDate" class="input-group"></div>
+          <app-date-range-picker (messageEvent)="receiveDate($event)"></app-date-range-picker>
+        </div>
+
+        <!-- DataSource -->
+        <div class="mb-3">
+          <label for="dataSource">Datenquelle</label>
+          <div id="dataSource" class="input-group">
+            <app-data-source></app-data-source>
+          </div>
+        </div>
+
+        <!-- attribute fields -->
+        <div class="mb-3">
+          <label for="measureDate">Attributfelder</label>
+        <div id="measureDate" class="input-group"></div>
+                <app-attribute-fields></app-attribute-fields>
+        </div>
+
+        <!-- freetext -->
+        <div class="mb-3">
+          <label for="accuracy">Freitext</label>
+          <div id="freetext" class="input-group">
+            <input id="freetext-input" type="text" class="form-control form-accuracy-pos" placeholder="Freitext" value="test"/>
+          </div>
+        </div>
+
+        <!-- projection -->
+        <div class="mb-3">
+          <label for="accuracy">Projektion [EPSG-Code]</label>
+          <div id="accuracy" class="input-group">
+            <input id="proj-position-input" type="text" class="form-control form-accuracy-pos" placeholder="Lage"
+            [(ngModel)]="model"
+            [ngbTypeahead]="searchP"
+            (focus)="focusP$.next($any($event).target.value)"
+            (click)="clickP$.next($any($event).target.value)"
+            #instance="ngbTypeahead"
+            />
+            <input id="proj-height-input" type="text" class="form-control form-accuracy-height" placeholder="Höhe"
+            [(ngModel)]="model"
+            [ngbTypeahead]="searchH"
+            (focus)="focusH$.next($any($event).target.value)"
+            (click)="clickH$.next($any($event).target.value)"
+            #instance="ngbTypeahead"
+            />
+          </div>
+        </div>
+
+        <!-- license -->
+        <div class="mb-3">
+          <label for="accuracy">Lizenz</label>
+          <div id="accuracy" class="input-group">
+            <input id="license-input" type="text" class="form-control form-accuracy-pos" placeholder="Lizenz" value="MIT"/>
+          </div>
+        </div>
+
+      </form>
+    </div>
+    <div class="modal-footer">
+      <!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button> -->
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')" (click)="uploadFile()">Hochladen</button>
+    </div>
+  </ng-template>
+  
+  
+  <button class="btn btn-primary btn-block" type="button" (click)="openUploadMask(uploadcontent)">Upload</button>

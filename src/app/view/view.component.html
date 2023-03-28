@@ -1,0 +1,17 @@
+<div class="btn-group btn-group-toggle nav-link font-weight-bold" ngbRadioGroup name="radioBasic" [(ngModel)]="viewSelection">
+    <label ngbButtonLabel class="btn-primary">
+      <input ngbButton type="radio" class="btn-check" value="map">2D
+    </label>
+    <label ngbButtonLabel class="btn-primary">
+      <input ngbButton type="radio" class="btn-check" value="scene">3D
+    </label>
+</div>
+  
+<!-- <hr class="row-custom" align="left"> -->
+  
+<div *ngIf="viewSelection">
+    <app-map  *ngIf="viewSelection=='map'"></app-map>
+    <app-cesium *ngIf="viewSelection=='scene'"></app-cesium>
+</div>
+
+<!-- <app-map></app-map> -->

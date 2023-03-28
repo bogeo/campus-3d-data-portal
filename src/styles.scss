@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+html, body, div[appCesium] {
+    width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+    }
+
+    /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+.custom-btns .btn-primary:not(:disabled):not(.disabled).active,
+.custom-btns .btn-primary:not(:disabled):not(.disabled):active,.custom-btns .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #DC3545 ;
+    border-color: #DC3545 ;
+}
+.custom-btns .btn-primary {
+    color: #000;
+    background-color: #F5F5F5;
+    border-color: #F5F5F5;
+}
+.custom-btns .btn-primary:hover {
+    color: #fff;
+    background-color: #C82333;
+    border-color: #C82333;
+}
+.custom-btns .btn-primary.focus, .btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem #F5F5F5;
+}
+
+.custom-btns .btn-outline-primary:not(:disabled):not(.disabled).active,
+.custom-btns .btn-outline-primary:not(:disabled):not(.disabled):active,.custom-btns .show>.btn-outline-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #DC3545 ;
+    border-color: #DC3545 ;
+}
+.custom-btns .btn-outline-primary {
+    color: #000;
+    background-color: #F5F5F5;
+    border-color: #F5F5F5;
+}
+.custom-btns .btn-outline-primary:hover {
+    color: #fff;
+    background-color: #C82333;
+    border-color: #C82333;
+}
+.custom-btns .btn-outline-primary.focus, .btn-outline-primary:focus {
+    box-shadow: 0 0 0 0.2rem #F5F5F5;
+}
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

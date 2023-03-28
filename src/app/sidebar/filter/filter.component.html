@@ -1,0 +1,101 @@
+<!-- Filter by ID -->
+<div class="input-group">
+  <label for="search" class="filter-label">Suche nach ID: </label>
+  <div class="form-outline">
+    <input id="typeahead-focus" type="text" class="form-control" (change)="emitId($event)" type="number" min="1"/>
+  </div>
+  <!-- <button type="button" class="btn btn-primary">
+    <i class="fas bi-search"></i>
+  </button> -->
+</div>
+
+
+<div class="card-body">
+
+  <!-- Filter by Measure Method -->
+  <div class="row">
+    <div class="col-md-6 mb-3" style="padding: 0 0;">
+      <label for="measureMethod" class="filter-label">Messmethode</label>
+      <br/>
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="measure-method-btn" name="test"
+          ngbDropdownToggle>{{measureMethod}}</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem (click)="emitMeasureMethod('Alle')" name="Alle">Alle</button>
+          <button ngbDropdownItem (click)="emitMeasureMethod('ALS')" name="ALS">ALS</button>
+          <button ngbDropdownItem (click)="emitMeasureMethod('TLS')" name="TLS">TLS</button>
+          <button ngbDropdownItem (click)="emitMeasureMethod('Bilddaten')" name="Bilddaten">Bilddaten</button>
+          <button ngbDropdownItem (click)="emitMeasureMethod('MLS')" name="MLS">MLS</button>
+          <button ngbDropdownItem (click)="emitMeasureMethod('Sonar/Multibeam')"
+            name="Sonar/Multibeam">Sonar/Multibeam</button>
+          <button ngbDropdownItem (click)="emitMeasureMethod('Sonstige')" name="Sonstige">Sonstige</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter by Accuracy -->
+    <div class="col-md-6 mb-3" style="padding: 0 0;">
+      <label for="accuracy" class="filter-label">Genauigkeit</label>
+      <br/>
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="dropdownForm1" ngbDropdownToggle>{{filteredAccuracy['position'] + "/" + filteredAccuracy['height']}}</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownForm1">
+          <div id="accuracy" class="input-group">
+            <div class="settings">
+              <label>Lage [cm]</label>
+              <input id="acc-position-input" type="text" class="form-control form-accuracy-pos" (change)="emitAccuracyPosition($event)" type="number" min="1"/>
+              <label>Höhe [cm]</label>
+              <input id="acc-height-input" type="text" class="form-control form-accuracy-height" (change)="emitAccuracyHeight($event)" type="number" min="1"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 mb-3" style="padding: 0 0;">
+      <label for="attributeFields" class="filter-label">Attributfelder</label>
+      <br/>
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{filteredAttributeFields.toString()}}</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <!-- RGB -->
+          <div class="form-check">
+            <input mdbCheckbox class="form-check-input" type="checkbox" value="RGB" id="checkRgb"
+              (click)="receiveAttributeFields()" />
+            <label class="form-check-label" for="flexCheckDefault">
+              RGB
+            </label>
+          </div>
+          <!-- Intensität -->
+          <div class="form-check">
+            <input mdbCheckbox class="form-check-input" type="checkbox" value="Intensity" id="checkIntensity"
+              (click)="receiveAttributeFields()" />
+            <label class="form-check-label" for="flexCheckChecked">
+              Intensität
+            </label>
+          </div>
+          <!-- Andere -->
+          <div class="form-check">
+            <input mdbCheckbox class="form-check-input" type="checkbox" value="Other" id="checkOther"
+              (click)="receiveAttributeFields()" />
+            <label class="form-check-label" for="flexCheckChecked">
+              Andere
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-3" style="padding: 0 0;">
+      <label for="measureDate" class="filter-label">Messzeitraum</label>
+      <br/>
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{filteredDateString}}</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <div id="measureDate" class="input-group"></div>
+          <app-date-range-picker (messageEvent)="receiveDate($event)"></app-date-range-picker>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

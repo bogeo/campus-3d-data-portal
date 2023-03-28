@@ -1,0 +1,13 @@
+<div ngbDropdown class="d-inline-block">
+  <button class="btn btn-outline-primary" id="measure-method-btn" name="test"
+    ngbDropdownToggle>{{measureMethod}}</button>
+  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+    <button ngbDropdownItem (click)="changeDropDownValue('ALS')" name="ALS">ALS</button>
+    <button ngbDropdownItem (click)="changeDropDownValue('TLS')" name="TLS">TLS</button>
+    <button ngbDropdownItem (click)="changeDropDownValue('Bilddaten')" name="Bilddaten">Bilddaten</button>
+    <button ngbDropdownItem (click)="changeDropDownValue('MLS')" name="MLS">MLS</button>
+    <button ngbDropdownItem (click)="changeDropDownValue('Sonar/Multibeam')"
+      name="Sonar/Multibeam">Sonar/Multibeam</button>
+    <button ngbDropdownItem (click)="changeDropDownValue('Sonstige')" name="Sonstige">Sonstige</button>
+  </div>
+</div>

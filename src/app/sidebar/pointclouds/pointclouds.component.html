@@ -1,0 +1,164 @@
+<p *ngIf="items.length == 0">No results found</p>
+
+<!-- <div *ngIf="idFound == true"> -->
+<div *ngFor="let pointcloud of items; let i = index">
+  <div class="btn btn-outline-primary col-12 parent-pc" (click)="collapse.toggle();"
+    [attr.aria-expanded]="pointcloud.isCollapsed" aria-controls="collapseExample">
+    <div class="row">
+      <div class="text-left col-10">
+        <a attr.id="my-pc{{pointcloud.id}}" class="text-left bi-eye-slash btn-outline-primary custom-download-btn"
+          style="background-color: transparent;" (click)="switchLayerVisibility(pointcloud)"
+          (click)="collapse.toggle()"></a>
+        <a type="text-left button" style="padding-left: 10px;">Punktwolke {{ pointcloud.id }}</a>
+      </div>
+      <div class="text-right col-1">
+        <a class="bi-download btn-outline-primary custom-download-btn" style="background-color: transparent;"
+          (click)="downloadFile(pointcloud.id)" (click)="collapse.toggle()"></a>
+      </div>
+      <div class="text-right col-1">
+        <a class="bi-trash btn-outline-primary custom-trash-btn" style="background-color: transparent;"
+          (click)="deleteFile(pointcloud.id)" (click)="collapse.toggle()"></a>
+      </div>
+    </div>
+  </div>
+  <div #collapse="ngbCollapse" [(ngbCollapse)]="pointcloud.isCollapsed">
+    <div class="card">
+      <div class="card-body">
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <td>
+                ID
+              </td>
+              <td>{{ pointcloud.id}}</td>
+            </tr>
+            <tr>
+              <td>
+                Genauigkeit
+              </td>
+              <td>
+                <table>
+                  <tr>
+                    <td>Lage: </td>
+                    <td>{{pointcloud.accuracy.position}}</td>
+                  </tr>
+                  <tr>
+                    <td>Höhe: </td>
+                    <td>{{pointcloud.accuracy.height}}</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Attributfelder
+              </td>
+              <td>{{ pointcloud.attributeFields}}</td>
+            </tr>
+            <tr>
+              <td>
+                Datenquelle
+              </td>
+              <td>
+                <table>
+                  <tr>
+                    <td>Institution: </td>
+                    <td>{{pointcloud.dataSource.institution}}</td>
+                  </tr>
+                  <tr>
+                    <td>Adresse: </td>
+                    <td>{{pointcloud.dataSource.address.street}} {{pointcloud.dataSource.address.hno}}</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>{{pointcloud.dataSource.address.zipCode}} {{pointcloud.dataSource.address.country}}</td>
+                  </tr>
+                </table>
+
+
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Ausdruck
+              </td>
+              <td>
+                <table>
+                  <tr>
+                    <td>Art: </td>
+                    <td>{{pointcloud.expression.kind}}</td>
+                  </tr>
+                  <tr>
+                    <td>Punktdichte: </td>
+                    <td>{{pointcloud.expression.pointdense.min}} - {{pointcloud.expression.pointdense.max}} cm</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Freitext
+              </td>
+              <td>{{ pointcloud.freeText}}</td>
+            </tr>
+            <tr>
+              <td>
+                Lizenz
+              </td>
+              <td>{{ pointcloud.license}}</td>
+            </tr>
+            <tr>
+              <td>
+                Messzeitraum
+              </td>
+              <td>
+                <table>
+                  <tr>
+                    <td>Startdatum: </td>
+                    <td>{{pointcloud.measureDate.startDate}}</td>
+                  </tr>
+                  <tr>
+                    <td>Enddatum: </td>
+                    <td>{{pointcloud.measureDate.endDate}}</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Messmethode
+              </td>
+              <td>{{ pointcloud.measureMethod}}</td>
+            </tr>
+            <tr>
+              <td>
+                Projektion
+              </td>
+              <td>
+                <table>
+                  <tr>
+                    <td>Lage: </td>
+                    <td>{{pointcloud.projection.position}}</td>
+                  </tr>
+                  <tr>
+                    <td>Höhe: </td>
+                    <td>{{pointcloud.projection.height}}</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Boundary
+              </td>
+              <td>
+                <button class="btn btn-primary btn-block" type="button"
+                  (click)="copyMessage(this.pointcloud.boundary)">in Zwischenablage kopieren</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
