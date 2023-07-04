@@ -1,3 +1,4 @@
+![](https://github.com/bogeo/campus-3d-data-portal/blob/master/BO-Logo.png)
 # Campus3D Data Portal
 
 ## General Information
