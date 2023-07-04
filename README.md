@@ -1,5 +1,4 @@
 # Campus3D Data Portal
-In this GitHub repository, the Campus3D Data Portal will be available within the next few days.
 
 ## General Information
 ### The Campus3D Project
@@ -9,10 +8,10 @@ addresses the question of how 3D point clouds can be managed, documented and mad
 The software was created as part of a project, which was carried out from April 2021 to September 2022 in the department of Geodesy at Bochum University of Applied Sciences. The aim of the project was to set up a data platform that would provide students from other departments with 3D point clouds of the university campus (indoor data, exterior views of the buildings and green spaces, etc.) for their subject-specific tasks. The project, in the context of which the approach of problem-based learning (PBL) was explicitly pursued, was accompanied by a master's thesis, in which the project ideas developed were further developed.
 
 References:
+- Kurowski, T.; Schmidt, B. (2023): [Entwicklung eines webbasierten Repositorys zur aufgabenbezogenen Bereitstellung georäumlicher 3D-Punktwolken im 
+Campus3D-Projekt](https://www.researchgate.net/publication/371790353_Entwicklung_eines_webbasierten_Repositorys_zur_aufgabenbezogenen_Bereitstellung_georaumlicher_3D-Punktwolken_im_Campus3D-Projekt). gis.Science, 3/2010, S. 126-131. gis.Science, 36(2), 2/2023, S. 63-72.
 -	Kurowski, T. (2022): Entwicklung einer Webanwendung zur Verwaltung und automatisierten Visualisierung von Punktwolken mit globalem Raumbezug im Umfeld des 
-Campus3D‐Projekts. Master's thesis, B.Eng. Geoinformation Sciences (Geoinformatik). DOI: 10.13140/RG.2.2.36797.13280
-- Kurowski, T.; Schmidt, B. (2023): Entwicklung eines webbasierten Repositorys zur aufgabenbezogenen Bereitstellung georäumlicher 3D-Punktwolken im 
-Campus3D-Projekt. Journal article, to appear.
+Campus3D‐Projekts. Master's thesis, B.Eng. Geoinformation Sciences (Geoinformatik). DOI: [10.13140/RG.2.2.36797.13280](https://www.researchgate.net/publication/366714428_Entwicklung_einer_Webanwendung_zur_Verwaltung_und_automatisierten_Visualisierung_von_Punktwolken_mit_globalem_Raumbezug_im_Umfeld_des_Campus_3D-Projekts)
 
 ### Software architecture
 The Campus3D framework consists of two software components:
@@ -27,5 +26,4 @@ Apache License, Version 2.0
 - Benno Schmidt, Bochum University of Applied Sciences, Geovisualization Lab
 
 ## Contact
-The Campus3D project is maintained by the [Geovisualization Lab](https://www.hochschule-bochum.de/fbg/einrichtungen-im-fachbereich/labor-fuer-geovisualisierung-geovis/) at Bochum University of Applied Sciences.
-If you have any questions about this or any other repository related to Campus3D, please contact us.
+The Campus3D project is maintained by the [Geovisualization Lab](https://www.hochschule-bochum.de/fbg/einrichtungen-im-fachbereich/labor-fuer-geovisualisierung-geovis/) at Bochum University of Applied Sciences. If you have any questions about this or any other repository related to Campus3D, please contact us.
